@@ -35,12 +35,6 @@ function getImgUrls(url, altTxt) {
 // 1. npm install
 // 2. node index.js
 
-const URL =
-  'https://www.asos.com/ru/asos-tall/chernye-dzhinsy-s-zavyshennoj-taliej-asos-design-tall/prd/10264367?clr=odnotonnyj-chernyj&colourwayid=15106387&SearchQuery=&cid=3630';
-
-const URL2 =
-  'https://www.asos.com/ru/adidas-originals/belaya-olimpijka-s-logotipom-adidas-originals-locked-up/prd/14125453?clr=belyj&colourwayid=16593428&SearchQuery=&cid=2641';
-
 const puppeteer = require('puppeteer');
 
 /**
@@ -103,8 +97,8 @@ async function scrapTest(url) {
   }
 }
 
-scrapTest(URL);
-scrapTest(URL2);
+scrapTest('https://www.asos.com/ru/asos-tall/chernye-dzhinsy-s-zavyshennoj-taliej-asos-design-tall/prd/10264367?clr=odnotonnyj-chernyj&colourwayid=15106387&SearchQuery=&cid=3630');
+scrapTest('https://www.asos.com/ru/adidas-originals/belaya-olimpijka-s-logotipom-adidas-originals-locked-up/prd/14125453?clr=belyj&colourwayid=16593428&SearchQuery=&cid=2641');
 
 
 // ---------------------------------------------------------------------------------------------------------------------------
