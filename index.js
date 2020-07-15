@@ -12,11 +12,15 @@
 
 
 // get array of image URLs
-function getImgUrls(url, num) {
+/**
+ * @param {string} url of main image
+ * * @param {string} altTxt of main image
+ */
+function getImgUrls(url, altTxt) {
   const regex = /^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/;
   const [, , , , , , base] = regex.exec(url);
   const [, , , , , , , query] = regex.exec(url);
-  const number = Number(num.slice(-1));
+  const number = Number(altTxt.slice(-1));
   const str = base.substring(0, base.length - 1);
   const baseUrl = url.replace(`${base}${query}`, '');
   const urls = [];
@@ -39,6 +43,9 @@ const URL2 =
 
 const puppeteer = require('puppeteer');
 
+/**
+ * @param {string} url of page
+ */
 async function scrapTest(url) {
   const browser = await puppeteer.launch();
   try {
@@ -102,7 +109,7 @@ scrapTest(URL2);
 
 // ---------------------------------------------------------------------------------------------------------------------------
 // РЕШЕНИЕ В ЛОБ ДЛЯ РАБОТЫ ВНУТРИ БРАУЗЕРА
-// В КОНСОЛЬ БРАУЗЕРА ВСТАВИТЬ ФУНКЦИЮ getImgUrls, ВСТАВИТЬ ФУНКЦИЮ scrapWithinBrowser и запусить его
+// В КОНСОЛЬ БРАУЗЕРА ВСТАВИТЬ ФУНКЦИЮ getImgUrls, ВСТАВИТЬ ФУНКЦИЮ scrapWithinBrowser и вызвать ее
 
 function scrapWithinBrowser() {
   const mainImg = document.querySelector('.fullImageContainer .img');
