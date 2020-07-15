@@ -1,0 +1,21 @@
+{
+  "name": "test_onthespot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --conf --mode production"
+  },
+  "dependencies": {
+    "browserify": "^16.5.1",
+    "puppeteer": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "babel-loader": "^8.1.0",
+    "source-map-loader": "^1.0.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.0"
+  }
+}
