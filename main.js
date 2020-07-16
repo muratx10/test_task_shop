@@ -8,8 +8,6 @@ const input = document.querySelector('#URL');
  * @param {string} url
  */
 async function scrap(url) {
-  const PROXY_URL = 'https://stark-anchorage-11922.herokuapp.com/';
-
   //SCRAPERAPI is used to bypass CORS policy. 1000 free requests per day
   const SCRAP_PROXY = 'https://api.scraperapi.com?api_key=5983be0e42093018d5c0ba9aa624b48b&url=';
   const imagesBaseURL = 'https://images.asos-media.com/products/chernye-dzhinsy-s-zavyshennoj-taliej-asos-design-tall/';
@@ -20,7 +18,7 @@ async function scrap(url) {
   try {
     const productId = regexURL.exec(url)[6].match(regexNum)[0];
 
-    const html = await (await fetch(`${PROXY_URL}${url}`)).text();
+    const html = await (await fetch(`${SCRAP_PROXY}${url}`)).text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
 
     const priceReq = await fetch(`${SCRAP_PROXY}${priceBaseURL}${productId}${priceURLQuery}`);
