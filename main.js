@@ -3,8 +3,14 @@ const regexNum = /(\d+)(?!.*\d)/;
 const form = document.querySelector('form');
 const input = document.querySelector('#URL');
 
+
+/**
+ * @param {string} url
+ */
 async function scrap(url) {
   const PROXY_URL = 'https://stark-anchorage-11922.herokuapp.com/';
+
+  //SCRAPERAPI is used to bypass CORS policy. 1000 free requests per day
   const SCRAP_PROXY = 'https://api.scraperapi.com?api_key=5983be0e42093018d5c0ba9aa624b48b&url=';
   const imagesBaseURL = 'https://images.asos-media.com/products/chernye-dzhinsy-s-zavyshennoj-taliej-asos-design-tall/';
   const imageURLQuery = '?$XXL$&wid=513&fit=constrain';
@@ -13,6 +19,7 @@ async function scrap(url) {
 
   try {
     const productId = regexURL.exec(url)[6].match(regexNum)[0];
+
     const html = await (await fetch(`${PROXY_URL}${url}`)).text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
 
