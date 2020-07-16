@@ -6,7 +6,7 @@ const input = document.querySelector('#URL');
 async function scrap(url) {
   const productId = regexURL.exec(url)[6].match(regexNum)[0];
   const PROXY_URL = 'https://stark-anchorage-11922.herokuapp.com/';
-  const SCRAP_PROXY = 'http://api.scraperapi.com?api_key=5983be0e42093018d5c0ba9aa624b48b&url=';
+  const SCRAP_PROXY = 'https://api.scraperapi.com?api_key=5983be0e42093018d5c0ba9aa624b48b&url=';
   const imagesBaseURL = 'https://images.asos-media.com/products/chernye-dzhinsy-s-zavyshennoj-taliej-asos-design-tall/';
   const imageURLQuery = '?$XXL$&wid=513&fit=constrain';
   const priceBaseURL = 'https://www.asos.com/api/product/catalogue/v3/stockprice?productIds=';
